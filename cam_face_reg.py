@@ -82,6 +82,7 @@ class App(QMainWindow, Ui_Form):
             self.thread.change_pixmap_signal.connect(self.update_image)
             # start the thread
             self.thread.start()
+            self.image_label.show()
 
     def close_camera(self):
         """
@@ -90,6 +91,7 @@ class App(QMainWindow, Ui_Form):
         if self.thread is not None:
             self.thread.stop()
             self.thread = None
+            self.image_label.hide()
 
     def face_reg(self):
         """
